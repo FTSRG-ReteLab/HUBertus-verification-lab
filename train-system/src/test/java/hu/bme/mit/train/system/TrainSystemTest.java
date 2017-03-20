@@ -56,6 +56,7 @@ public class TrainSystemTest {
 
         user.overrideJoystickPosition(5);
 
+
         Thread.sleep(1000);
         Assert.assertEquals(5, controller.getReferenceSpeed());
         Thread.sleep(1000);
@@ -63,4 +64,6 @@ public class TrainSystemTest {
         Thread.sleep(1000);
         Assert.assertEquals(10, controller.getReferenceSpeed());
     }
+
+
 }
