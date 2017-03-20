@@ -50,5 +50,19 @@ public class TrainSystemTest {
 		Assert.assertEquals(0, controller.getReferenceSpeed());
 	}
 
-	
+	@Test
+	public void testFollowSpeed() throws InterruptedException {
+		sensor.overrideSpeedLimit(10);
+
+		Assert.assertEquals(0, controller.getReferenceSpeed());
+
+		user.overrideJoystickPosition(5);
+
+		Thread.sleep(1000);
+		Assert.assertEquals(5, controller.getReferenceSpeed());
+		Thread.sleep(1000);
+		Assert.assertEquals(10, controller.getReferenceSpeed());
+		Thread.sleep(1000);
+		Assert.assertEquals(10, controller.getReferenceSpeed());
+	}
 }
