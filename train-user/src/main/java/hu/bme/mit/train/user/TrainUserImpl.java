@@ -1,5 +1,6 @@
 package hu.bme.mit.train.user;
 
+import hu.bme.mit.train.controller.FollowSpeedPeriodically;
 import hu.bme.mit.train.interfaces.TrainController;
 import hu.bme.mit.train.interfaces.TrainUser;
 
@@ -9,8 +10,13 @@ public class TrainUserImpl implements TrainUser {
 	private int joystickPosition;
 	private boolean alarmState;
 
-	public TrainUserImpl(TrainController controller) {
+	
+
+	public TrainUserImpl(TrainController controller)
+	{
 		this.controller = controller;
+		Thread t = new FollowSpeedPeriodically();
+		t.start();
 	}
 
 	@Override
